@@ -31,7 +31,7 @@ jobs:
     executor: aws-cli/default
     steps:
       - checkout
-      - run: sudo apt-get install build essential
+      # - run: sudo apt-get install build essential
       - run:
           name: Fetch and save the old pipeline ID (bucket name) responsible for the last release.
           command: |
