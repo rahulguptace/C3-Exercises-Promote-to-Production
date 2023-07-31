@@ -31,7 +31,7 @@ jobs:
     executor: aws-cli/default
     steps:
       - checkout
-      - run: yum install -y tar gzip
+      - run: sudo apt-get install build essential
       - run:
           name: Fetch and save the old pipeline ID (bucket name) responsible for the last release.
           command: |
@@ -50,6 +50,10 @@ jobs:
     executor: aws-cli/default
     steps:
       - checkout
+      - aws-cli/setup:
+            aws-access-key-id: AWS_ACCESS_KEY
+            aws-secret-access-key: AWS_ACCESS_SECRET
+            aws-region: AWS_REGION_NAME
       - run:
           name: Execute cloudfront.yml
           command: |
