@@ -72,7 +72,7 @@ jobs:
     executor: aws-cli/default
     steps:
       - checkout
-      - run: yum install -y tar gzip
+      # - run: yum install -y tar gzip
       - attach_workspace:
           at: ~/
       - run:
